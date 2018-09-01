@@ -13,35 +13,36 @@ public class MusicManager : MonoBehaviour
 
     void Awake()
     {
-        SceneManager.sceneLoaded += loadScene;
+        SceneManager.sceneLoaded += LoadScene;
     }
 
     void Start()
     {
-        SceneManager.sceneLoaded += loadScene;
+        SceneManager.sceneLoaded += LoadScene;
     }
 
-    void loadScene(Scene scene, LoadSceneMode mode)
+    void LoadScene(Scene scene, LoadSceneMode mode)
     {
         string newSceneName = SceneManager.GetActiveScene().name;
         if (newSceneName != sceneName)
-        {
+        { 
             sceneName = newSceneName;
-            Invoke("PlayMusic", .2f); //invoked with small delay to avoid playing music before destroyed audio manager causing overlaps
+            Invoke("PlayMusic", .5f); //invoked with small delay to avoid playing music before destroyed audio manager causing overlaps
         }
     }
 
     void PlayMusic()
     {
         AudioClip cliptoPlay = null;
-        if (sceneName == "Menu")
+        if (sceneName == "MainMenu" || sceneName == "LevelSelect")
         {
             cliptoPlay = menuMusic;
         }
-        else if (sceneName == "Game")
+        else
         {
             cliptoPlay = gameMusic;
         }
+
         if (cliptoPlay != null)
         {
             AudioManager.instance.playMusic(cliptoPlay, 2);
