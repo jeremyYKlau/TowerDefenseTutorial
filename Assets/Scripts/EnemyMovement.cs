@@ -44,6 +44,7 @@ public class EnemyMovement : MonoBehaviour {
     {
         PlayerStats.lives--;
         WaveSpawner.enemiesAlive--;
+        AudioManager.instance.playSound("Take Damage");
         Destroy(gameObject);
     }
 }

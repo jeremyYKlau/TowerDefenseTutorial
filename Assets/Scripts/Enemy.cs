@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour {
     public int bounty = 50;
 
     public GameObject deathEffect;
+    //AudioClip deathSound;
 
     [Header("Unity Info")]
     public Image healthBar;
@@ -46,6 +47,8 @@ public class Enemy : MonoBehaviour {
     {
         isDead = true;
         PlayerStats.money += bounty;
+        //if sfx ever get added
+        AudioManager.instance.playSound("Enemy Death");
 
         WaveSpawner.enemiesAlive--;
 

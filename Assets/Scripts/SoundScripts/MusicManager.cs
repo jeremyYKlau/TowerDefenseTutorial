@@ -13,25 +13,25 @@ public class MusicManager : MonoBehaviour
 
     void Awake()
     {
-        SceneManager.sceneLoaded += LoadScene;
+        SceneManager.sceneLoaded += loadScene;
     }
 
     void Start()
     {
-        SceneManager.sceneLoaded += LoadScene;
+        SceneManager.sceneLoaded += loadScene;
     }
 
-    void LoadScene(Scene scene, LoadSceneMode mode)
+    void loadScene(Scene scene, LoadSceneMode mode)
     {
         string newSceneName = SceneManager.GetActiveScene().name;
         if (newSceneName != sceneName)
         { 
             sceneName = newSceneName;
-            Invoke("PlayMusic", .5f); //invoked with small delay to avoid playing music before destroyed audio manager causing overlaps
+            Invoke("playMusic", .5f); //invoked with small delay to avoid playing music before destroyed audio manager causing overlaps
         }
     }
 
-    void PlayMusic()
+    void playMusic()
     {
         AudioClip cliptoPlay = null;
         if (sceneName == "MainMenu" || sceneName == "LevelSelect")

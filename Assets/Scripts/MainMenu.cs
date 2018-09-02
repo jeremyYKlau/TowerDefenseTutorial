@@ -14,9 +14,9 @@ public class MainMenu : MonoBehaviour {
 
     private void Start()
     {
-        volumeSliders[0].value = AudioManager.instance.MasterVolumePercent;
-        volumeSliders[1].value = AudioManager.instance.MusicVolumePercent;
-        volumeSliders[2].value = AudioManager.instance.SfxVolumePercent;
+        volumeSliders[0].value = AudioManager.instance.masterVolumePercent;
+        volumeSliders[1].value = AudioManager.instance.musicVolumePercent;
+        volumeSliders[2].value = AudioManager.instance.sfxVolumePercent;
     }
 
     public void play()
@@ -42,16 +42,16 @@ public class MainMenu : MonoBehaviour {
             Time.timeScale = 1f;
         }
     }
-    public void SetMasterVol(float value)
+    public void setMasterVol(float value)
     {
-        AudioManager.instance.SetVolume(value, AudioManager.AudioChannel.Master);
+        AudioManager.instance.setVolume(value, AudioManager.AudioChannel.Master);
     }
-    public void SetMusicVol(float value)
+    public void setMusicVol(float value)
     {
-        AudioManager.instance.SetVolume(value, AudioManager.AudioChannel.Music);
+        AudioManager.instance.setVolume(value, AudioManager.AudioChannel.Music);
     }
-    public void SetSfxVol(float value)
+    public void setSfxVol(float value)
     {
-        AudioManager.instance.SetVolume(value, AudioManager.AudioChannel.Sfx);
+        AudioManager.instance.setVolume(value, AudioManager.AudioChannel.Sfx);
     }
 }

@@ -16,6 +16,8 @@ public class WaveSpawner : MonoBehaviour {
     public Text waveCountdownText;
     public GameManager gameManager;
 
+    public AudioClip levelCompleteSound;
+
     private int waveIndex = 0;
 
     void Update()
@@ -29,6 +31,8 @@ public class WaveSpawner : MonoBehaviour {
 
         if (waveIndex == waves.Length && PlayerStats.lives != 0)
         {
+            AudioManager.instance.playSound(levelCompleteSound);
+
             gameManager.levelComplete();
             this.enabled = false;
         }

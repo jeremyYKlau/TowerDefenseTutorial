@@ -108,7 +108,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4692b612dfcfa9544ac195b85a0cd702, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildSfx: {fileID: 8300000, guid: 2fbc2296e65a11d45b6cab8ea1fd66cc, type: 3}
+  upgradeSfx: {fileID: 8300000, guid: 38dbc36910b6bec418f1447b40ab5f81, type: 3}
+  destroySfx: {fileID: 8300000, guid: 941b5c9d63f3f3548807172eb7c2922d, type: 3}
   hoverColour: {r: 0.745283, g: 0.745283, b: 0.745283, a: 0}
   cannotBuildColour: {r: 0.9811321, g: 0, b: 0, a: 0}
   placementOffset: {x: 0, y: 0.5, z: 0}
   turret: {fileID: 0}
+  turretBlueprint:
+    prefab: {fileID: 0}
+    cost: 0
+    upgradedPrefab: {fileID: 0}
+    upgradeCost: 0
+  isUpgraded: 0

@@ -5442,6 +5442,7 @@ MonoBehaviour:
   timeBetweenWaves: 4
   waveCountdownText: {fileID: 2052883450}
   gameManager: {fileID: 677992133}
+  levelCompleteSound: {fileID: 8300000, guid: 268185e87e50695499f5f132940003b2, type: 3}
 --- !u!4 &677992130
 Transform:
   m_ObjectHideFlags: 0

@@ -7,6 +7,11 @@ public class Node : MonoBehaviour {
 
     BuildManager buildManager;
 
+    public AudioClip buildSfx;
+    public AudioClip upgradeSfx;
+    public AudioClip destroySfx;
+
+
     public Color hoverColour;
     public Color cannotBuildColour;
     public Vector3 placementOffset;
@@ -63,6 +68,7 @@ public class Node : MonoBehaviour {
             return;
         }
 
+        AudioManager.instance.playSound(buildSfx);
         PlayerStats.money -= bluePrint.cost;
         GameObject turretAlt = (GameObject)Instantiate(bluePrint.prefab, getBuildPosition(), Quaternion.identity);
         turret = turretAlt;
@@ -84,6 +90,8 @@ public class Node : MonoBehaviour {
         //get rid of old turret
         Destroy(turret);
 
+        AudioManager.instance.playSound(upgradeSfx);
+
         //building new upgraded turret in it's place
         GameObject turretAlt = (GameObject)Instantiate(turretBlueprint.upgradedPrefab, getBuildPosition(), Quaternion.identity);
         turret = turretAlt;
@@ -97,6 +105,7 @@ public class Node : MonoBehaviour {
     public void sellTurret()
     {
         PlayerStats.money += turretBlueprint.getSellPrice(); //later I'd rather use total including upgrade so I'd change getsellprice in turretblueprint
+        AudioManager.instance.playSound(destroySfx);
 
         GameObject effect = (GameObject)Instantiate(buildManager.sellEffect, getBuildPosition(), Quaternion.identity);
         Destroy(effect, 5f);
